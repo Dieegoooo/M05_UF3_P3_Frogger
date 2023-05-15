@@ -46,7 +46,7 @@ namespace M05_UF3_P3_Frogger
                     lane.Draw();
                 }
 
-                Console.SetCursorPosition(0, Utils.MAP_HEIGHT + 1);
+                //Console.SetCursorPosition(0, Utils.MAP_HEIGHT + 1);
                 Console.Write($"Time: {TimeManager.time.ToString("0.00")} s | Frame: {TimeManager.frameCount} | DeltaTime: {TimeManager.deltaTime.ToString("0.000")} s");
 
             }
