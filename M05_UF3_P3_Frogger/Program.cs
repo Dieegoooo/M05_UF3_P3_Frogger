@@ -15,11 +15,11 @@ namespace M05_UF3_P3_Frogger
         {
             List<Lane> lanes = new List<Lane>();
             lanes.Add(new Lane(0, false, ConsoleColor.DarkGreen, false, false, 0, Utils.charCars, Utils.colorsCars.ToList()));
-            lanes.Add(new Lane(1, true, ConsoleColor.DarkBlue, true, false, 0.1f, Utils.charCars, Utils.colorsCars.ToList()));
-            lanes.Add(new Lane(2, true, ConsoleColor.DarkBlue, true, false, 0.1f, Utils.charCars, Utils.colorsCars.ToList()));
-            lanes.Add(new Lane(3, true, ConsoleColor.DarkBlue, true, false, 0.1f, Utils.charCars, Utils.colorsCars.ToList()));
-            lanes.Add(new Lane(4, true, ConsoleColor.DarkBlue, true, false, 0.1f, Utils.charCars, Utils.colorsCars.ToList()));
-            lanes.Add(new Lane(5, true, ConsoleColor.DarkBlue, true, false, 0.1f, Utils.charCars, Utils.colorsCars.ToList()));
+            lanes.Add(new Lane(1, true, ConsoleColor.DarkBlue, true, false, 0.1f, Utils.charLogs, Utils.colorsLogs.ToList()));
+            lanes.Add(new Lane(2, true, ConsoleColor.DarkBlue, true, false, 0.1f, Utils.charLogs, Utils.colorsLogs.ToList()));
+            lanes.Add(new Lane(3, true, ConsoleColor.DarkBlue, true, false, 0.1f, Utils.charLogs, Utils.colorsLogs.ToList()));
+            lanes.Add(new Lane(4, true, ConsoleColor.DarkBlue, true, false, 0.1f, Utils.charLogs, Utils.colorsLogs.ToList()));
+            lanes.Add(new Lane(5, true, ConsoleColor.DarkBlue, true, false, 0.1f, Utils.charLogs, Utils.colorsLogs.ToList()));
             lanes.Add(new Lane(6, false, ConsoleColor.DarkGreen, false, false, 0, Utils.charCars, Utils.colorsCars.ToList()));
             lanes.Add(new Lane(7, false, ConsoleColor.Black, true, false, 0.1f, Utils.charCars, Utils.colorsCars.ToList()));
             lanes.Add(new Lane(8, false, ConsoleColor.Black, true, false, 0.1f, Utils.charCars, Utils.colorsCars.ToList()));
@@ -29,7 +29,6 @@ namespace M05_UF3_P3_Frogger
             lanes.Add(new Lane(12, false, ConsoleColor.DarkGreen, false, false, 0, Utils.charCars, Utils.colorsCars.ToList()));
 
             Player player = new Player();
-      
             Vector2Int input = Input();
 
             Utils.GAME_STATE state = Utils.GAME_STATE.RUNNING;
