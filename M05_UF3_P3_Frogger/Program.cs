@@ -28,22 +28,36 @@ namespace M05_UF3_P3_Frogger
             lanes.Add(new Lane(11, false, ConsoleColor.Black, true, false, 0.1f, Utils.charCars, Utils.colorsCars.ToList()));
             lanes.Add(new Lane(12, false, ConsoleColor.DarkGreen, false, false, 0, Utils.charCars, Utils.colorsCars.ToList()));
 
-
             Player player = new Player();
             Vector2Int input = Input();
+
             Utils.GAME_STATE state = Utils.GAME_STATE.RUNNING;
             while (state == Utils.GAME_STATE.RUNNING)
             {
-                TimeManager.NextFrame();
+
                 state = player.Update(Utils.Input(), lanes);
-                foreach (Lane lane in lanes)
+                for (int i = 0; i < lanes.Count; i++)
                 {
-                    lane.Update();
-                    lane.Draw();
-                    player.Draw();
+                    lanes[i].Update();
                 }
+
+                for (int i = 0; i < lanes.Count; i++)
+                {
+                    lanes[i].Draw();
+                }
+                player.Draw();
+
+                if (state == Utils.GAME_STATE.WIN)
+                {
+                    Console.WriteLine("Has ganado");
+                }
+
+                if (state == Utils.GAME_STATE.LOOSE)
+                {
+                    Console.WriteLine("Has perdido");
+                }
+                TimeManager.NextFrame();
             }
-            Console.WriteLine(state == Utils.GAME_STATE.WIN ? "You win!" : "You lose :(");
             Console.ReadLine();
         }
     }
