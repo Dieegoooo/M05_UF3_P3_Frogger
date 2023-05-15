@@ -17,33 +17,31 @@ namespace M05_UF3_P3_Frogger
             lanes.Add(new Lane(0, false, ConsoleColor.DarkGreen, false, false, 0, Utils.charCars, Utils.colorsCars.ToList()));
             lanes.Add(new Lane(1, true, ConsoleColor.DarkBlue, true, false, 0.1f, Utils.charLogs, Utils.colorsLogs.ToList()));
             lanes.Add(new Lane(2, true, ConsoleColor.DarkBlue, true, false, 0.1f, Utils.charLogs, Utils.colorsLogs.ToList()));
-            lanes.Add(new Lane(3, true, ConsoleColor.DarkBlue, true, false, 0.1f, Utils.charLogs, Utils.colorsLogs.ToList()));
+            lanes.Add(new Lane(3, true, ConsoleColor.DarkBlue, false, false, 0.1f, Utils.charLogs, Utils.colorsLogs.ToList()));
             lanes.Add(new Lane(4, true, ConsoleColor.DarkBlue, true, false, 0.1f, Utils.charLogs, Utils.colorsLogs.ToList()));
-            lanes.Add(new Lane(5, true, ConsoleColor.DarkBlue, true, false, 0.1f, Utils.charLogs, Utils.colorsLogs.ToList()));
+            lanes.Add(new Lane(5, true, ConsoleColor.DarkBlue, false, false, 0.1f, Utils.charLogs, Utils.colorsLogs.ToList()));
             lanes.Add(new Lane(6, false, ConsoleColor.DarkGreen, false, false, 0, Utils.charCars, Utils.colorsCars.ToList()));
             lanes.Add(new Lane(7, false, ConsoleColor.Black, true, false, 0.1f, Utils.charCars, Utils.colorsCars.ToList()));
-            lanes.Add(new Lane(8, false, ConsoleColor.Black, true, false, 0.1f, Utils.charCars, Utils.colorsCars.ToList()));
+            lanes.Add(new Lane(8, false, ConsoleColor.Black, false, false, 0.1f, Utils.charCars, Utils.colorsCars.ToList()));
             lanes.Add(new Lane(9, false, ConsoleColor.Black, true, false, 0.1f, Utils.charCars, Utils.colorsCars.ToList()));
-            lanes.Add(new Lane(10, false, ConsoleColor.Black, true, false, 0.1f, Utils.charCars, Utils.colorsCars.ToList()));
+            lanes.Add(new Lane(10, false, ConsoleColor.Black, false, false, 0.1f, Utils.charCars, Utils.colorsCars.ToList()));
             lanes.Add(new Lane(11, false, ConsoleColor.Black, true, false, 0.1f, Utils.charCars, Utils.colorsCars.ToList()));
             lanes.Add(new Lane(12, false, ConsoleColor.DarkGreen, false, false, 0, Utils.charCars, Utils.colorsCars.ToList()));
 
+
             Player player = new Player();
             Vector2Int input = Input();
-
             Utils.GAME_STATE state = Utils.GAME_STATE.RUNNING;
             while (state == Utils.GAME_STATE.RUNNING)
             {
                 TimeManager.NextFrame();
-
-                player.Draw(lanes);
                 state = player.Update(Utils.Input(), lanes);
                 foreach (Lane lane in lanes)
                 {
                     lane.Update();
                     lane.Draw();
+                    player.Draw();
                 }
-                Console.Write($"Time: {TimeManager.time.ToString("0.00")} s | Frame: {TimeManager.frameCount} | DeltaTime: {TimeManager.deltaTime.ToString("0.000")} s");
             }
             Console.WriteLine(state == Utils.GAME_STATE.WIN ? "You win!" : "You lose :(");
             Console.ReadLine();
